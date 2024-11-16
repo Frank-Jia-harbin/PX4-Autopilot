@@ -225,6 +225,10 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 	case MAVLINK_MSG_ID_GPS_RTCM_DATA:
 		handle_message_gps_rtcm_data(msg);
 		break;
+//增加gps
+	case MAVLINK_MSG_ID_GPS_INPUT:
+		handle_message_gps_input(msg);
+		break;
 
 	case MAVLINK_MSG_ID_BATTERY_STATUS:
 		handle_message_battery_status(msg);

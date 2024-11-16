@@ -72,6 +72,7 @@
 #include <uORB/topics/distance_sensor.h>
 #include <uORB/topics/follow_target.h>
 #include <uORB/topics/generator_status.h>
+#include <uORB/topics/gps_input.h>
 #include <uORB/topics/gimbal_manager_set_attitude.h>
 #include <uORB/topics/gimbal_manager_set_manual_control.h>
 #include <uORB/topics/gimbal_device_information.h>
@@ -197,6 +198,7 @@ private:
 	void handle_message_trajectory_representation_waypoints(mavlink_message_t *msg);
 	void handle_message_utm_global_position(mavlink_message_t *msg);
 	void handle_message_vision_position_estimate(mavlink_message_t *msg);
+	void handle_message_gps_input(mavlink_message_t *msg);
 	void handle_message_gimbal_manager_set_attitude(mavlink_message_t *msg);
 	void handle_message_gimbal_manager_set_manual_control(mavlink_message_t *msg);
 	void handle_message_gimbal_device_information(mavlink_message_t *msg);
