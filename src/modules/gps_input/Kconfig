@@ -1,0 +1,5 @@
+menuconfig MODULES_GPS_INPUT
+	bool "gps_input"
+	default n
+	---help---
+		Enable support for gps_input

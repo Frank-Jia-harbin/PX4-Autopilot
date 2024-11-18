@@ -1204,6 +1204,34 @@ MavlinkReceiver::handle_message_set_gps_global_origin(mavlink_message_t *msg)
 
 	handle_request_message_command(MAVLINK_MSG_ID_GPS_GLOBAL_ORIGIN);
 }
+// 增加handle_message_gps_input
+void MavlinkReceiver::handle_message_gps_input(mavlink_message_t *msg) {
+	mavlink_gps_input_t gps_input;
+
+	mavlink_msg_gps_input_decode(msg, &gps_input);
+
+    printf("Timestamp: %llu us\n", (unsigned long long)gps_input.time_usec);
+    printf("GPS Week: %u\n", gps_input.time_week);
+    printf("GPS Week Ms: %u ms\n", gps_input.time_week_ms);
+    printf("Latitude: %d degE7\n", gps_input.lat);
+    printf("Longitude: %d degE7\n", gps_input.lon);
+    printf("Altitude: %f m\n", (double)gps_input.alt);
+    printf("HDOP: %f\n", (double)gps_input.hdop);
+    printf("VDOP: %f\n", (double)gps_input.vdop);
+    printf("Velocity North: %f m/s\n", (double)gps_input.vn);
+    printf("Velocity East: %f m/s\n", (double)gps_input.ve);
+    printf("Velocity Down: %f m/s\n", (double)gps_input.vd);
+    printf("Speed Accuracy: %f m/s\n", (double)gps_input.speed_accuracy);
+    printf("Horizontal Accuracy: %f m\n", (double)gps_input.horiz_accuracy);
+    printf("Vertical Accuracy: %f m\n", (double)gps_input.vert_accuracy);
+    printf("Ignore Flags: %u\n", gps_input.ignore_flags);
+    printf("GPS ID: %u\n", gps_input.gps_id);
+    printf("Fix Type: %u\n", gps_input.fix_type);
+    printf("Satellites Visible: %u\n", gps_input.satellites_visible);
+    printf("Yaw: %u cdeg\n", gps_input.yaw);
+}
+
+
 
 void
 MavlinkReceiver::handle_message_vision_position_estimate(mavlink_message_t *msg)
